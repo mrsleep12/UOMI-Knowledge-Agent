@@ -1,0 +1,12 @@
+{
+  "name": "uomi-knowledge-agent",
+  "version": "3.0.0",
+  "scripts": {
+    "start": "wasp start",
+    "build": "wasp build"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
