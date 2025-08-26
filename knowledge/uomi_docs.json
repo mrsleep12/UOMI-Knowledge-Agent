@@ -1,4 +1,10 @@
 {
-  "WASP": "WASP (WebAssembly Agent System Platform) adalah platform untuk membuat agen otonom di UOMI menggunakan Rust + WASM.",
-  "UOMI": "UOMI adalah ekosistem blockchain yang mendukung agen, smart contract, testnet, dan deployment WASM."
+  "WASP": {
+    "en": "WASP (WebAssembly Agent System Platform) is a platform to build autonomous agents in UOMI using Rust + WASM.",
+    "id": "WASP (WebAssembly Agent System Platform) adalah platform untuk membuat agen otonom di UOMI menggunakan Rust + WASM."
+  },
+  "UOMI": {
+    "en": "UOMI is a blockchain ecosystem supporting agents, smart contracts, testnet, and WASM deployment.",
+    "id": "UOMI adalah ekosistem blockchain yang mendukung agen, smart contract, testnet, dan deployment WASM."
+  }
 }
