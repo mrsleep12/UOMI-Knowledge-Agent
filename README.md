@@ -1,16 +1,17 @@
-# UOMI Knowledge Agent Super Final
+# UOMI Knowledge Agent Bilingual EN + ID
 
-Fitur:
-- Menjawab pertanyaan tentang UOMI & Crypto
-- Multi-turn conversation & riwayat pertanyaan
-- Knowledge base auto-update dari docs.uomi.ai
-- Integrasi OpenAI GPT
-- Ambil harga crypto real-time dari API
-- Backup knowledge base otomatis
+Features:
+- Answer questions about UOMI & Crypto
+- Supports English & Indonesian
+- Multi-turn conversation & history tracking
+- Auto-update knowledge base from docs.uomi.ai
+- GPT integration via OpenAI
+- Fetch real-time crypto prices
+- Automatic knowledge base backup
 
-## Cara pakai (Aman)
-1. Copy `config/secrets.json.example` → rename menjadi `secrets.json`
-2. Masukkan API key OpenAI kamu di `secrets.json`
-3. Update knowledge base (opsional):
+## How to use (Safe)
+1. Copy `config/secrets.json.example` → rename to `secrets.json`
+2. Insert your OpenAI API key in `secrets.json` (optional, required for GPT)
+3. Update knowledge base (optional):
 ```bash
 node scripts/update_kb.js
