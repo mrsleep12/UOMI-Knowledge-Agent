@@ -1,0 +1,14 @@
+# Ignore secrets
+config/secrets.json
+
+# Node modules
+node_modules/
+
+# Rust/WASM build artifacts
+agent/target/
+
+# Log files
+*.log
+
+# Misc
+.DS_Store
