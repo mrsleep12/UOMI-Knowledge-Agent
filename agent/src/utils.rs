@@ -11,13 +11,21 @@ pub fn log(msg: &str) { println!("[LOG] {}", msg); }
 pub fn add_to_history(question: &str) { HISTORY.lock().unwrap().push(question.to_string()); }
 pub fn get_history() -> Vec<String> { HISTORY.lock().unwrap().clone() }
 
-pub fn read_knowledge(question: &str) -> Option<String> {
+pub fn detect_language(question: &str) -> &str {
+    if question.to_lowercase().contains("bahasa") || question.to_lowercase().contains("id") {
+        "id"
+    } else {
+        "en"
+    }
+}
+
+pub fn read_knowledge(question: &str, lang: &str) -> Option<String> {
     let data = fs::read_to_string("knowledge/uomi_docs.json").ok()?;
     let kb: serde_json::Value = serde_json::from_str(&data).ok()?;
     let q_lower = question.to_lowercase();
     for (key, val) in kb.as_object()? {
         if q_lower.contains(&key.to_lowercase()) {
-            return val.as_str().map(|s| s.to_string());
+            return val.get(lang)?.as_str().map(|s| s.to_string());
         }
     }
     None
@@ -38,12 +46,12 @@ pub fn fetch_crypto_price(question: &str) -> Option<f64> {
     None
 }
 
-pub fn query_openai(question: &str) -> String {
+pub fn query_openai(question: &str, lang: &str) -> String {
     let secrets = fs::read_to_string("config/secrets.json").unwrap_or_default();
     let key: serde_json::Value = serde_json::from_str(&secrets).unwrap_or_default();
     let api_key = key["openai_api_key"].as_str().unwrap_or("");
     if api_key.is_empty() {
-        return format!("Dummy GPT Answer: '{}'", question);
+        return format!("Dummy GPT Answer ({}): '{}'", lang, question);
     }
-    format!("GPT Answer (using API key) for '{}'", question)
+    format!("GPT Answer ({}) for '{}'", lang, question)
 }
