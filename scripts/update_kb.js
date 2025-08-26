@@ -20,7 +20,12 @@ async function fetchDocs() {
     $("h2").each((i, el) => {
       const key = $(el).text().trim();
       const value = $(el).next("p").text().trim();
-      if (key && value) kb[key] = value;
+      if (key && value) {
+        kb[key] = {
+          en: value,
+          id: value // can be manually translated if needed
+        };
+      }
     });
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(kb, null, 2));
